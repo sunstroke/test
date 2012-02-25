@@ -6,7 +6,6 @@ class CataloguesController < ApplicationController
     @catalogue = Catalogue.new
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @catalogues }
       format.pdf {
         html = render_to_string(:layout => false , :action => "show.html.erb")
         kit = PDFKit.new(html, :page_size=>'A4',:margin_top    => '11.5mm',
@@ -46,7 +45,6 @@ class CataloguesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @catalogue }
     end
   end
 
@@ -63,10 +61,8 @@ class CataloguesController < ApplicationController
     respond_to do |format|
       if @catalogue.save
         format.html { redirect_to @catalogue, notice: 'Catalogue was successfully created.' }
-        format.json { render json: @catalogue, status: :created, location: @catalogue }
       else
         format.html { render action: "new" }
-        format.json { render json: @catalogue.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -79,10 +75,10 @@ class CataloguesController < ApplicationController
     respond_to do |format|
       if @catalogue.update_attributes(params[:catalogue])
         format.html { redirect_to @catalogue, notice: 'Catalogue was successfully updated.' }
-        format.json { head :ok }
+
       else
         format.html { render action: "edit" }
-        format.json { render json: @catalogue.errors, status: :unprocessable_entity }
+
       end
     end
   end
@@ -95,7 +91,7 @@ class CataloguesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to catalogues_url }
-      format.json { head :ok }
+
     end
   end
 end
