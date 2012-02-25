@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mainfoto: false
+  foto1: MyString
+  foto2: MyString
+  foto3: MyString
+  width: 1
+  height: 1
+  count: 1
+  art: MyString
+  rent: 1
+  purchase: 1
+  transportation: 1
+  installation: 1
+  dismantling: 1
+  fine: 1
+
+two:
+  mainfoto: false
+  foto1: MyString
+  foto2: MyString
+  foto3: MyString
+  width: 1
+  height: 1
+  count: 1
+  art: MyString
+  rent: 1
+  purchase: 1
+  transportation: 1
+  installation: 1
+  dismantling: 1
+  fine: 1

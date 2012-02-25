@@ -1,0 +1,177 @@
+<h1>Listing catalogues</h1>
+
+<table>
+  <tr>
+    <th>№</th>
+    <th>Фото</th>
+    <th>Ширина</th>
+    <th>Высота</th>
+    <th>Количество</th>
+    <th>№Арт</th>    
+    <th>Аренда</th>
+    <th>Покупка</th>    
+    <th>Транспортировка</th>    
+    <th>Монтаж</th>    
+    <th>Демонтаж</th>    
+    <th>Штраф</th>  
+    <th></th>
+    <th></th>
+    <th></th>              
+  </tr>
+
+<% @catalogues.each do |catalogue| %>
+  <tr>
+    <td>
+      <div class="field">
+        <%= catalogue.mainfoto %>
+      </div>                
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.foto1 %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.width%>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.height %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.count %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.art %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.rent  %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.purchase %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.transportation  %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.installation %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.dismantling %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.fine  %>
+      </div>        
+    </td>
+    
+    <td><%= link_to 'Show', catalogue %></td>
+    <td><%= link_to 'Edit', edit_catalogue_path(catalogue) %></td>
+    <td><%= link_to 'Destroy', catalogue, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>  
+  <tr>
+    <td>
+      <%= form_for(@catalogue) do |f| %>
+        <% if @catalogue.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@catalogue.errors.count, "error") %> prohibited this catalogue from being saved:</h2>
+
+            <ul>
+            <% @catalogue.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+    </td>
+  </tr>
+  <tr>
+      <td>
+        <div class="field">
+        </div>                
+      </td>
+      <td>
+        <div class="field">
+          <%= f.text_field :foto1 , :style=>"width: 200px;"%>
+        </div>        
+      </td>
+      <td>
+        <div class="field">
+          <%= f.text_field :width, :style=>"width: 30px;" %>
+        </div>        
+      </td>
+      <td>
+        <div class="field">
+          <%= f.text_field :height, :style=>"width: 30px;" %>
+        </div>        
+      </td>
+      <td>
+        <div class="field">
+          <%= f.text_field :count, :style=>"width: 20px;" %>
+        </div>        
+      </td>
+      <td>
+        <div class="field">
+          <%= f.text_field :art, :style=>"width: 30px;" %>
+        </div>        
+      </td>
+      <td>
+        <div class="field">
+          <%= f.text_field :rent, :style=>"width: 30px;"  %>
+        </div>        
+      </td>
+      <td>
+        <div class="field">
+          <%= f.text_field :purchase, :style=>"width: 30px;"  %>
+        </div>        
+      </td>
+      <td>
+        <div class="field">
+          <%= f.text_field :transportation, :style=>"width: 30px;"  %>
+        </div>        
+      </td>
+      <td>
+        <div class="field">
+          <%= f.text_field :installation, :style=>"width: 30px;"  %>
+        </div>        
+      </td>
+      <td>
+        <div class="field">
+          <%= f.text_field :dismantling, :style=>"width: 30px;"  %>
+        </div>        
+      </td>
+      <td>
+        <div class="field">
+          <%= f.text_field :fine, :style=>"width: 30px;"  %>
+        </div>        
+      </td>
+      <td>
+        <div class="actions">
+        <%= f.submit %>
+        </div>
+      </td>  
+  </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'Новая позиция', new_catalogue_path %>

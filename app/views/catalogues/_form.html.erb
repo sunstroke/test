@@ -1,0 +1,78 @@
+<table>
+<%= form_for(@catalogue) do |f| %>
+  <% if @catalogue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@catalogue.errors.count, "error") %> prohibited this catalogue from being saved:</h2>
+
+      <ul>
+      <% @catalogue.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <td>
+      <div class="field">
+        <%= f.text_field :mainfoto %>
+      </div>                
+    </td>
+    <td>
+      <div class="field">
+        <%= f.text_field :foto1 %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= f.text_field :width %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= f.text_field :height %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= f.text_field :count %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= f.text_field :art %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= f.text_field :rent %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= f.text_field :purchase %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= f.text_field :transportation %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= f.text_field :installation %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= f.text_field :dismantling %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= f.text_field :fine %>
+      </div>        
+    </td>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</table>

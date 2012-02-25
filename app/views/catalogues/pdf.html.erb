@@ -1,0 +1,80 @@
+<table :style="border: 2px;">
+  <tr>
+    <th>№</th>
+    <th>Фото</th>
+    <th>Ширина</th>
+    <th>Высота</th>
+    <th>Количество</th>
+    <th>№Арт</th>    
+    <th>Аренда</th>
+    <th>Покупка</th>    
+    <th>Транспортировка</th>    
+    <th>Монтаж</th>    
+    <th>Демонтаж</th>    
+    <th>Штраф</th>  
+  </tr>
+
+<% @catalogues.each do |catalogue| %>
+  <tr>
+    <td>
+      <div class="field">
+        <%= catalogue.mainfoto %>
+      </div>                
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.foto1 %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.width%>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.height %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.count %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.art %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.rent  %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.purchase %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.transportation  %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.installation %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.dismantling %>
+      </div>        
+    </td>
+    <td>
+      <div class="field">
+        <%= catalogue.fine  %>
+      </div>        
+    </td>
+  </tr>
+<% end %>

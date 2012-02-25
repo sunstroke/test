@@ -1,0 +1,94 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+body {
+	font-family: Verdana;
+	font-style: normal;
+	font-weight: 300;
+	text-align: center;
+	margin: 0;
+}
+table {
+	border-spacing: 2px;
+	width: 1037px;
+}
+.numb {
+	background: #ef7f1b;
+	font-size: 6.5pt;
+	width: 25px;
+}
+.name {
+	background: #da5323;
+	font-size: 6.5pt;
+	color: white;	
+	font-weight: bold;
+	width: 268px;	
+	text-align: center;	
+}
+.razmer {
+	background: #ef7f1b;
+	font-size: 6pt;	
+	width: 160px;
+	text-align: center;	
+}
+.nameitem {
+	font-size: 6.5pt;
+	background: #d9dbda;
+	color: #8e8d8e;
+	text-align: left;	
+}
+.foto {
+	width: 128px;
+	height: 155px;
+	background: #5b5b5b;	
+}
+.razed {
+	font-size: 7pt;
+	background: #ebedec;
+	height: 105px;
+	text-align: center;	
+}
+.desc {
+	background: #ebedec;
+}
+.f {
+	background: #5b5b5b;
+}
+.cena {
+	font-size: 10pt;
+	background: #f3f3f3;
+	text-align: center;	
+}
+.sh {
+	background: #ef7f1b;
+	font-size: 4pt;	
+	font-weight: bold;
+	text-align: center;	
+}
+.col {
+	background: #ef7f1b;	
+	font-size: 6.5pt;
+	width: 50px;
+	text-align: center;	
+}
+.art {
+	background: #ef7f1b;
+	font-size: 6.5pt;	
+	width: 75px;	
+	text-align: center;	
+}
+.stoim {
+	background: #f6a057;	
+	font-size: 7pt;	
+	width: 450px;
+	text-align: center;	
+}
+.arenda {
+	background: #f6a057;
+	font-size: 5pt;	
+	text-align: center;	
+}
