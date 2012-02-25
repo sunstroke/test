@@ -61,7 +61,7 @@ class CataloguesController < ApplicationController
       if @catalogue.save
         format.html { redirect_to @catalogue, :notice => 'Catalogue was successfully created.' }
       else
-        format.html { render action: "new" }
+        format.html { render :action => "new" }
       end
     end
   end
@@ -76,7 +76,7 @@ class CataloguesController < ApplicationController
         format.html { redirect_to @catalogue, :notice=> 'Catalogue was successfully updated.' }
 
       else
-        format.html { render action: "edit" }
+        format.html { render :action => "edit" }
 
       end
     end
