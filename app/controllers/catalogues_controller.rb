@@ -6,7 +6,7 @@ class CataloguesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.pdf {
-        html = render_to_string(:layout => false , :action => "show.html.erb")
+        html = render_to_string(:layout => false , :action => "pdf.html.erb")
         kit = PDFKit.new(html, :page_size=>'A4',:margin_top    => '11.5mm',
         :margin_right  => '17.5mm',
         :margin_bottom => '5.8mm',
@@ -28,7 +28,7 @@ class CataloguesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf {
-        html = render_to_string(:layout => false , :action => "show.html.haml")
+        html = render_to_string(:layout => false , :action => "pdf.html.haml")
         kit = PDFKit.new(html)
         kit.stylesheets << "#{Rails.root}/public/stylesheets/screen.css"
         send_data(kit.to_pdf, :filename => "labels.pdf", :type => 'application/pdf')

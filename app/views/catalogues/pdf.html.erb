@@ -1,80 +1,94 @@
-<table :style="border: 2px;">
+<table style="height: 85px;">
   <tr>
-    <th>№</th>
-    <th>Фото</th>
-    <th>Ширина</th>
-    <th>Высота</th>
-    <th>Количество</th>
-    <th>№Арт</th>    
-    <th>Аренда</th>
-    <th>Покупка</th>    
-    <th>Транспортировка</th>    
-    <th>Монтаж</th>    
-    <th>Демонтаж</th>    
-    <th>Штраф</th>  
+    <td style="width: 550px;background: #d9dbda; float: left; height: 50px; padding-top: 20px; margin-top: 15px; margin-left: 2px;">
+      <span style="font-size: 14pt;	font-weight: bold; float: left; padding-left: 25px;">КАТАЛОГ ДЕКОРАЦИОННЫХ ЭЛЕМЕНТОВ</span>
+      <br>
+      <span style="font-size: 10.5pt;float: left;padding-left: 25px;">www.fabrika-art.ru  hello@fabrika-art.ru t\f: +7 495 665 3450</span>
+    </td>
+    <td style="float: left;width:309px; height: 70px; margin-top: 15px;margin-left: 2px;"> <%= image_tag("#{::Rails.root}/public/images/punkt.png", :style=>"width:309px; height: 70px;float: left;") %> </td>
+    <td  style="float: left; width: 110px; margin-left: 2px;"><%= image_tag("#{::Rails.root}/public/images/fabrika.png" , :style=>"width: 110px; height: 85px;float: left; ") %></td>
+  </tr>
+</table>
+
+<table style="clear: both;">
+  <tr>
+    <td class="numb" rowspan="2">№</td>
+    <td class="name" rowspan="2">НАЗВАНИЕ/ФОТО</td>
+    <td class="razmer" colspan="3">РАЗМЕРЫ мм </td>
+    <td class="col" rowspan="2">КОЛ-ВО</td>
+    <td class="art" rowspan="2">№ АРТ</td>
+    <td class="stoim" colspan="6">СТОИМОСТЬ УСЛУГ В РУБ/ШТ.</td>
+  </tr>
+  <tr>
+    <td class="sh" >ширина</td>
+    <td class="sh" >высота</td>
+    <td class="sh" >глубина</td>  
+    <td class="arenda" style="font-weight: bold;" >АРЕНДА</td>
+    <td class="arenda" >ПОКУПКА</td>    
+    <td class="arenda" >ТРАНСПОР-<br>ТИРОВКА</td>    
+    <td class="arenda" >МОНТАЖ</td>    
+    <td class="arenda" >ДЕМОНТАЖ</td>    
+    <td class="arenda" >ШТРАФ</td>  
   </tr>
 
 <% @catalogues.each do |catalogue| %>
   <tr>
-    <td>
-      <div class="field">
-        <%= catalogue.mainfoto %>
-      </div>                
+    <td class="numb">
+        <%= catalogue.id %>
     </td>
-    <td>
-      <div class="field">
+    <td colspan="12" class="nameitem"><%= catalogue.name %></td>
+  </tr>
+  <tr>
+    <td rowspan="2" class="f">
+    </td>
+    <td class="foto" rowspan="2">
         <%= catalogue.foto1 %>
+    </td>
+    <td colspan="3" class="razed" style="font-weight: bold;">
+        <%= catalogue.width||"0" %>x<%= catalogue.height||"0" %>x<%= catalogue.depth||"0"%>
+    </td>    
+    <td class="razed">
+      <div class="field" >
+        <%= catalogue.count||"0" %>
       </div>        
     </td>
-    <td>
+    <td class="razed">
+      <div class="field" >
+        <%= catalogue.art||"-" %>
+      </div>        
+    </td>
+    <td  class="cena" style="font-weight: bold;">
       <div class="field">
-        <%= catalogue.width%>
+        <%= catalogue.rent||"-"  %>
       </div>        
     </td>
-    <td>
+    <td  class="cena">
       <div class="field">
-        <%= catalogue.height %>
+        <%= catalogue.purchase||"-" %>
       </div>        
     </td>
-    <td>
+    <td   class="cena">
       <div class="field">
-        <%= catalogue.count %>
+        <%= catalogue.transportation||"-"  %>
       </div>        
     </td>
-    <td>
+    <td  class="cena">
       <div class="field">
-        <%= catalogue.art %>
+        <%= catalogue.installation||"-" %>
       </div>        
     </td>
-    <td>
+    <td  class="cena">
       <div class="field">
-        <%= catalogue.rent  %>
+        <%= catalogue.dismantling||"-" %>
       </div>        
     </td>
-    <td>
+    <td  class="cena">
       <div class="field">
-        <%= catalogue.purchase %>
+        <%= catalogue.fine||"-"  %>
       </div>        
     </td>
-    <td>
-      <div class="field">
-        <%= catalogue.transportation  %>
-      </div>        
-    </td>
-    <td>
-      <div class="field">
-        <%= catalogue.installation %>
-      </div>        
-    </td>
-    <td>
-      <div class="field">
-        <%= catalogue.dismantling %>
-      </div>        
-    </td>
-    <td>
-      <div class="field">
-        <%= catalogue.fine  %>
-      </div>        
-    </td>
+  </tr>
+  <tr>
+    <td colspan="11" class="desc"><%= catalogue.desc %></td>
   </tr>
 <% end %>
