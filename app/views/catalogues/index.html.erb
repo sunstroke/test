@@ -12,6 +12,7 @@
 
 <table style="clear: both;">
   <tr>
+    <td rowspan="2"></td>
     <td class="numb" rowspan="2">№</td>
     <td class="name" rowspan="2">НАЗВАНИЕ/ФОТО</td>
     <td class="razmer" colspan="3">РАЗМЕРЫ мм </td>
@@ -31,18 +32,18 @@
     <td class="arenda" >ШТРАФ</td>  
     <td></td>
     <td></td>
-    <td><a href="/catalogues.pdf">Скачать каталог</a></td>        
+    <td><a href="/catalogues.pdf"><img src="/images/pdf.gif"></a></td>        
   </tr>
 
 <% @catalogues.each do |catalogue| %>
   <tr>
+    <td rowspan="4"></td>
     <td class="numb">
         <%= catalogue.id %>
     </td>
     <td colspan="12" class="nameitem"><%= catalogue.name %></td>
-    <td rowspan="3"><%= link_to 'Show', catalogue %></td>
-    <td rowspan="3"><%= link_to 'Edit', edit_catalogue_path(catalogue) %></td>
-    <td rowspan="3"><%= link_to 'Destroy', catalogue, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td rowspan="3"><%= link_to image_tag("/images/edit.png"), edit_catalogue_path(catalogue) %></td>
+    <td rowspan="3"><%= link_to image_tag("/images/del.png"), catalogue, :confirm => 'Are you sure?', :method => :delete %></td>
     
   </tr>
   <tr>
@@ -95,9 +96,10 @@
       </div>        
     </td>
   </tr>
-  <tr>
+  <tr >
     <td colspan="11" class="desc"><%= catalogue.desc %></td>
   </tr>
+  <tr><td colspan="13" style="padding-bottom: 2px;"></td></tr>
 <% end %>
   <tr>
     <td>
@@ -116,79 +118,78 @@
     </td>
   </tr>
   <tr>
-      <td>
-        <div class="field">
-        </div>                
-      </td>
-      <td>
-        <div class="field">
-          <%= f.text_field :foto1 , :style=>"width: 200px;"%>
-        </div>        
-      </td>
-      <td>
-        <div class="field">
-          <%= f.text_field :width, :style=>"width: 30px;" %>
-        </div>        
-      </td>
-      <td>
-        <div class="field">
-          <%= f.text_field :height, :style=>"width: 30px;" %>
-        </div>        
-      </td>
-      <td>
-        <div class="field">
-          <%= f.text_field :depth, :style=>"width: 30px;" %>
-        </div>        
-      </td>      
-      <td>
-        <div class="field">
-          <%= f.text_field :count, :style=>"width: 20px;" %>
-        </div>        
-      </td>
-      <td>
-        <div class="field">
-          <%= f.text_field :art, :style=>"width: 50px;" %>
-        </div>        
-      </td>
-      <td>
-        <div class="field">
-          <%= f.text_field :rent, :style=>"width: 30px;"  %>
-        </div>        
-      </td>
-      <td>
-        <div class="field">
-          <%= f.text_field :purchase, :style=>"width: 30px;"  %>
-        </div>        
-      </td>
-      <td>
-        <div class="field">
-          <%= f.text_field :transportation, :style=>"width: 30px;"  %>
-        </div>        
-      </td>
-      <td>
-        <div class="field">
-          <%= f.text_field :installation, :style=>"width: 30px;"  %>
-        </div>        
-      </td>
-      <td>
-        <div class="field">
-          <%= f.text_field :dismantling, :style=>"width: 30px;"  %>
-        </div>        
-      </td>
-      <td>
-        <div class="field">
-          <%= f.text_field :fine, :style=>"width: 30px;"  %>
-        </div>        
-      </td>
-      <td>
-        <div class="actions">
-        <%= f.submit :value=>"Добавить позицию" %>
-        </div>
-      </td>  
+    <td rowspan="4" class="mainf">
+      <%= image_tag("/images/one_photo.png") %><%= f.radio_button :mainfoto, "true" %>
+      <br>
+      <%= image_tag("/images/many_photo.png") %><%= f.radio_button :mainfoto, "false" %>
+    </td>    
+    <td class="numb">
+
+    </td>
+    <td colspan="12" class="nameitem"><%= f.text_field :name ,:style=>"width: 99%;" %></td>
+    <td rowspan="3"></td>
+    <td rowspan="3"></td>
+    
+  </tr>
+  <tr>
+    <td rowspan="2" class="f">
+    </td>
+    <td class="foto" rowspan="2">
+        <%= f.file_field  :foto1 %>
+    </td>
+    <td colspan="3" class="razed" style="font-weight: bold;">
+        <%= f.text_field :width ,:style=>"width: 20px;" %>X<%= f.text_field :height  ,:style=>"width: 20px;" %>X<%= f.text_field :depth  ,:style=>"width: 20px;" %>
+    <td class="razed">
+      <div class="field" >
+        <%= f.text_field :count ,:style=>"width: 30px;" %>
+      </div>        
+    </td>
+    <td class="razed">
+      <div class="field" >
+        <%= f.text_field :art ,:style=>"width: 30px;" %>
+      </div>        
+    </td>
+    <td  class="cena" style="font-weight: bold;">
+      <div class="field">
+        <%= f.text_field :rent ,:style=>"width: 30px;"  %>
+      </div>        
+    </td>
+    <td  class="cena">
+      <div class="field">
+        <%= f.text_field :purchase ,:style=>"width: 30px;" %>
+      </div>        
+    </td>
+    <td   class="cena">
+      <div class="field">
+        <%= f.text_field :transportation  ,:style=>"width: 30px;"%>
+      </div>        
+    </td>
+    <td  class="cena">
+      <div class="field">
+        <%= f.text_field :installation ,:style=>"width: 30px;" %>
+      </div>        
+    </td>
+    <td  class="cena">
+      <div class="field">
+        <%= f.text_field :dismantling  ,:style=>"width: 30px;"%>
+      </div>        
+    </td>
+    <td  class="cena">
+      <div class="field">
+        <%= f.text_field :fine  ,:style=>"width: 30px;" %>
+      </div>        
+    </td>
+  </tr>
+  <tr>
+    <td colspan="11" class="desc"><%= f.text_area :desc  ,:style=>"width: 100%; height: 50px;" %></td>
+    <td>
+      <div class="actions">
+      <%= f.submit :type=>"image", :src=>"/images/add.png" %>
+      </div>
+    </td>  
   </tr>
   <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Новая позиция', new_catalogue_path %>

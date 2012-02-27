@@ -31,15 +31,19 @@ table {
 }
 .razmer {
 	background: #ef7f1b;
-	font-size: 6pt;	
+	font-size: 10pt;	
 	width: 160px;
 	text-align: center;	
 }
 .nameitem {
 	font-size: 6.5pt;
 	background: #d9dbda;
-	color: #8e8d8e;
-	text-align: left;	
+	color: #5b5b5b;
+	text-align: left;
+	padding: 5px;	
+}
+.mainf {
+	width: 60px;
 }
 .foto {
 	width: 128px;
@@ -47,13 +51,16 @@ table {
 	background: #5b5b5b;	
 }
 .razed {
-	font-size: 7pt;
+	font-size: 10pt;
 	background: #ebedec;
 	height: 105px;
 	text-align: center;	
+	vertical-align: top;
 }
 .desc {
 	background: #ebedec;
+	text-align: left;
+	vertical-align: top;	
 }
 .f {
 	background: #5b5b5b;
@@ -62,10 +69,11 @@ table {
 	font-size: 10pt;
 	background: #f3f3f3;
 	text-align: center;	
+	vertical-align: top;	
 }
 .sh {
 	background: #ef7f1b;
-	font-size: 4pt;	
+	font-size: 7pt;	
 	font-weight: bold;
 	text-align: center;	
 }
