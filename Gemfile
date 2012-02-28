@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem "haml"
 gem 'pdfkit'
 gem "carrierwave"
+gem "mini_magick"
 gem 'json'
 gem 'jquery-rails'
 gem 'therubyracer'

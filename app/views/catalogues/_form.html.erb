@@ -1,78 +1,118 @@
-<table>
-<%= form_for(@catalogue) do |f| %>
-  <% if @catalogue.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@catalogue.errors.count, "error") %> prohibited this catalogue from being saved:</h2>
+<table style="clear: both;">
+  <tr>
+    <td rowspan="2"></td>
+    <td class="numb" rowspan="2">№</td>
+    <td class="name" rowspan="2">НАЗВАНИЕ/ФОТО</td>
+    <td class="razmer" colspan="3">РАЗМЕРЫ мм </td>
+    <td class="col" rowspan="2">КОЛ-ВО</td>
+    <td class="art" rowspan="2">№ АРТ</td>
+    <td class="stoim" colspan="6">СТОИМОСТЬ УСЛУГ В РУБ/ШТ.</td>
+  </tr>
+  <tr>
+    <td class="sh" >ширина</td>
+    <td class="sh" >высота</td>
+    <td class="sh" >глубина</td>  
+    <td class="arenda" style="font-weight: bold;" >АРЕНДА</td>
+    <td class="arenda" >ПОКУПКА</td>    
+    <td class="arenda" >ТРАНСПОР-<br>ТИРОВКА</td>    
+    <td class="arenda" >МОНТАЖ</td>    
+    <td class="arenda" >ДЕМОНТАЖ</td>    
+    <td class="arenda" >ШТРАФ</td>  
+    <td></td>
+    <td></td>
+    <td><a href="/catalogues.pdf"><img src="/images/pdf.gif"></a></td>        
+  </tr>
 
-      <ul>
-      <% @catalogue.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-    <td>
-      <div class="field">
-        <%= f.text_field :mainfoto %>
-      </div>                
-    </td>
-    <td>
-      <div class="field">
-        <%= f.text_field :foto1 %>
-      </div>        
-    </td>
-    <td>
-      <div class="field">
-        <%= f.text_field :width %>
-      </div>        
-    </td>
-    <td>
-      <div class="field">
-        <%= f.text_field :height %>
-      </div>        
-    </td>
-    <td>
-      <div class="field">
-        <%= f.text_field :count %>
-      </div>        
-    </td>
-    <td>
-      <div class="field">
-        <%= f.text_field :art %>
-      </div>        
-    </td>
-    <td>
-      <div class="field">
-        <%= f.text_field :rent %>
-      </div>        
-    </td>
-    <td>
-      <div class="field">
-        <%= f.text_field :purchase %>
-      </div>        
-    </td>
-    <td>
-      <div class="field">
-        <%= f.text_field :transportation %>
-      </div>        
-    </td>
-    <td>
-      <div class="field">
-        <%= f.text_field :installation %>
-      </div>        
-    </td>
-    <td>
-      <div class="field">
-        <%= f.text_field :dismantling %>
-      </div>        
-    </td>
-    <td>
-      <div class="field">
-        <%= f.text_field :fine %>
-      </div>        
-    </td>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-</table>
+    <tr>
+      <td>
+        <%= form_for(@catalogue) do |f| %>
+          <% if @catalogue.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@catalogue.errors.count, "error") %> prohibited this catalogue from being saved:</h2>
+
+              <ul>
+              <% @catalogue.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4" class="mainf">
+        <%= image_tag("/images/one_photo.png") %><%= f.radio_button :mainfoto, "true" %>
+        <br>
+        <%= image_tag("/images/many_photo.png") %><%= f.radio_button :mainfoto, "false" %>
+      </td>    
+      <td class="numb">
+
+      </td>
+      <td colspan="12" class="nameitem"><%= f.text_field :name ,:style=>"width: 99%;" %></td>
+      <td rowspan="3"></td>
+      <td rowspan="3"></td>
+
+    </tr>
+    <tr>
+      <td rowspan="2" class="f">
+      </td>
+      <td class="foto" rowspan="2">
+        <%-if @catalogue.foto1 %>
+          <%= image_tag(@catalogue.foto1_url(:one_foto)) %>
+        <%- end %>
+          <%= f.file_field  :foto1 %>
+          
+      </td>
+      <td colspan="3" class="razed" style="font-weight: bold;">
+          <%= f.text_field :width ,:style=>"width: 20px;" %>X<%= f.text_field :height  ,:style=>"width: 20px;" %>X<%= f.text_field :depth  ,:style=>"width: 20px;" %>
+      <td class="razed">
+        <div class="field" >
+          <%= f.text_field :count ,:style=>"width: 30px;" %>
+        </div>        
+      </td>
+      <td class="razed">
+        <div class="field" >
+          <%= f.text_field :art ,:style=>"width: 30px;" %>
+        </div>        
+      </td>
+      <td  class="cena" style="font-weight: bold;">
+        <div class="field">
+          <%= f.text_field :rent ,:style=>"width: 30px;"  %>
+        </div>        
+      </td>
+      <td  class="cena">
+        <div class="field">
+          <%= f.text_field :purchase ,:style=>"width: 30px;" %>
+        </div>        
+      </td>
+      <td   class="cena">
+        <div class="field">
+          <%= f.text_field :transportation  ,:style=>"width: 30px;"%>
+        </div>        
+      </td>
+      <td  class="cena">
+        <div class="field">
+          <%= f.text_field :installation ,:style=>"width: 30px;" %>
+        </div>        
+      </td>
+      <td  class="cena">
+        <div class="field">
+          <%= f.text_field :dismantling  ,:style=>"width: 30px;"%>
+        </div>        
+      </td>
+      <td  class="cena">
+        <div class="field">
+          <%= f.text_field :fine  ,:style=>"width: 30px;" %>
+        </div>        
+      </td>
+    </tr>
+    <tr>
+      <td colspan="11" class="desc"><%= f.text_area :desc  ,:style=>"width: 100%; height: 50px;" %></td>
+      <td>
+        <div class="actions">
+        <%= f.submit :type=>"image", :src=>"/images/add.png" %>
+        </div>
+      </td>  
+    </tr>
+    <% end %>
+  </table>

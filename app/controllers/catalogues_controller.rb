@@ -59,7 +59,7 @@ class CataloguesController < ApplicationController
 
     respond_to do |format|
       if @catalogue.save
-        format.html { redirect_to @catalogue, :notice => 'Catalogue was successfully created.' }
+        format.html { redirect_to catalogues_url, :notice => 'Catalogue was successfully created.' }
       else
         format.html { render :action => "new" }
       end
@@ -73,7 +73,7 @@ class CataloguesController < ApplicationController
 
     respond_to do |format|
       if @catalogue.update_attributes(params[:catalogue])
-        format.html { redirect_to @catalogue, :notice=> 'Catalogue was successfully updated.' }
+        format.html { redirect_to catalogues_url, :notice=> 'Catalogue was successfully updated.' }
 
       else
         format.html { render :action => "edit" }

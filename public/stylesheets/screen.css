@@ -42,8 +42,8 @@ table {
 	text-align: left;	
 }
 .foto {
-	width: 128px;
-	height: 155px;
+	width: 270px;
+	height: 325px;
 	background: #5b5b5b;	
 }
 .razed {
@@ -51,9 +51,15 @@ table {
 	background: #ebedec;
 	height: 105px;
 	text-align: center;	
+	vertical-align: top;
 }
 .desc {
 	background: #ebedec;
+	font-size: 6.5pt;
+	color: #8e8d8e;
+	text-align: left;
+	vertical-align: top;	
+	
 }
 .f {
 	background: #5b5b5b;
@@ -62,6 +68,8 @@ table {
 	font-size: 10pt;
 	background: #f3f3f3;
 	text-align: center;	
+	vertical-align: top;	
+	
 }
 .sh {
 	background: #ef7f1b;
