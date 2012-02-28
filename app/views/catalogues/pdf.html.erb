@@ -43,7 +43,7 @@
     </td>
     <td class="foto" rowspan="2">
       <%-if catalogue.foto1? %>
-        <%= image_tag(catalogue.foto1_url(:one_foto)) %>
+        <%= image_tag "#{::Rails.root}/public"+catalogue.foto1_url(:one_foto) %>
       <%- else %>
       Нет изображения
       <%- end %>
