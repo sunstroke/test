@@ -57,7 +57,7 @@
       <td rowspan="2" class="f">
       </td>
       <td class="foto" rowspan="2">
-        <%-if @catalogue.foto1 %>
+        <%-if @catalogue.foto1? %>
           <%= image_tag(@catalogue.foto1_url(:one_foto)) %>
         <%- end %>
           <%= f.file_field  :foto1 %>
