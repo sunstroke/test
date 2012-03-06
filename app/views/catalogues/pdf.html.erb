@@ -42,12 +42,21 @@
     <td rowspan="2" class="f">
     </td>
     <td class="foto" rowspan="2">
-      <%-if catalogue.foto1? %>
-        <%= image_tag "#{::Rails.root}/public"+catalogue.foto1_url(:one_foto) %>
-      <%- else %>
-      Нет изображения
-      <%- end %>
-
+      <%- if catalogue.mainfoto? %>
+        <div class="fotom">
+          <%= image_tag("#{::Rails.root}/public"+catalogue.foto1_url(:one_foto)) if catalogue.foto1? %>
+        </div>
+        <%- else %>
+        <div class="foto1">
+          <%= image_tag("#{::Rails.root}/public"+catalogue.foto1_url(:main_foto)) if catalogue.foto1?  %>
+        </div>
+        <div class="foto2">
+          <%= image_tag("#{::Rails.root}/public"+catalogue.foto2_url(:tumb_foto)) if catalogue.foto2? %>            
+        </div>
+        <div class="foto2">          
+          <%= image_tag("#{::Rails.root}/public"+catalogue.foto3_url(:tumb_foto)) if catalogue.foto3? %>                      
+        </div>          
+      <%- end %>        
     </td>
     <td colspan="3" class="razed" style="font-weight: bold;">
         <%= catalogue.width||"0" %>x<%= catalogue.height||"0" %>x<%= catalogue.depth||"0"%>

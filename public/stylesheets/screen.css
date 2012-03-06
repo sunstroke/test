@@ -46,6 +46,18 @@ table {
 	height: 325px;
 	background: #5b5b5b;	
 }
+.fotom{
+	height:270px;
+}
+.foto1{
+	height:215px;
+}
+.foto2{
+	height: 110px;				
+	width: 135px;
+	float: left;
+}
+
 .razed {
 	font-size: 7pt;
 	background: #ebedec;
