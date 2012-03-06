@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120225105719) do
+ActiveRecord::Schema.define(:version => 20120306103847) do
 
   create_table "catalogues", :force => true do |t|
-    t.boolean  "mainfoto"
+    t.boolean  "mainfoto",       :default => true
     t.string   "name"
     t.string   "foto1"
     t.string   "foto2"

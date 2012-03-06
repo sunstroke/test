@@ -49,18 +49,31 @@ table {
 	width: 270px;
 	height: 325px;
 	background: #5b5b5b;	
+	vertical-align: top;
+}
+.fotom{
+	height:270px;
+}
+.foto1{
+	height:215px;
+}
+.foto2{
+	height: 110px;				
+	width: 135px;
+	float: left;
 }
 .razed {
 	font-size: 10pt;
 	background: #ebedec;
-	height: 105px;
+	height: 215px;
 	text-align: center;	
 	vertical-align: top;
 }
 .desc {
 	background: #ebedec;
 	text-align: left;
-	vertical-align: top;	
+	vertical-align: top;
+	height: 110px;			
 }
 .f {
 	background: #5b5b5b;
