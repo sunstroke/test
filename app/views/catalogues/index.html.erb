@@ -1,4 +1,4 @@
-<table style="height: 85px;">
+<table style="height: 85px; position: fixed; top:0; background: white;">
   <tr>
     <td style="width: 550px;background: #d9dbda; float: left; height: 50px; padding-top: 20px; margin-top: 15px; margin-left: 2px;">
       <span style="font-size: 14pt;	font-weight: bold; float: left; padding-left: 25px;">КАТАЛОГ ДЕКОРАЦИОННЫХ ЭЛЕМЕНТОВ</span>
@@ -10,7 +10,7 @@
   </tr>
 </table>
 
-<table style="clear: both;">
+<table style="clear: both; position: fixed; top:85px; background: white;">
   <tr>
     <td rowspan="2"></td>
     <td class="numb" rowspan="2">№</td>
@@ -34,7 +34,8 @@
     <td></td>
     <td><a href="/catalogues.pdf"><img src="/images/pdf.gif"></a></td>        
   </tr>
-
+</table>  
+<table style="clear: both; margin-top: 145px;">
 <% @catalogues.each do |catalogue| %>
   <tr>
     <td rowspan="4"></td>
