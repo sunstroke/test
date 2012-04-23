@@ -44,6 +44,7 @@ table {
 }
 .mainf {
 	width: 60px;
+	display: block;
 }
 .foto {
 	width: 270px;

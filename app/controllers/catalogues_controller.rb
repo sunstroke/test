@@ -1,7 +1,7 @@
 class CataloguesController < ApplicationController
   # GET /catalogues
   def index
-    @catalogues = Catalogue.all
+    @catalogues = Catalogue.order("position")
     @catalogue = Catalogue.new
     respond_to do |format|
       format.html # index.html.erb
@@ -65,7 +65,14 @@ class CataloguesController < ApplicationController
       end
     end
   end
-
+  def sort
+    @catalogues = Catalogue.all
+    @catalogues.each do |catalogue|
+      catalogue.position = params['table'].index(catalogue.id.to_s) + 1
+      catalogue.save
+    end
+    render :nothing => true
+  end
   # PUT /catalogues/1
   # PUT /catalogues/1.json
   def update

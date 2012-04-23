@@ -10,7 +10,9 @@ gem "haml"
 gem 'pdfkit'
 gem "carrierwave"
 gem "mini_magick"
+gem "acts_as_list"
 gem 'json'
+gem 'sorcery'
 gem 'jquery-rails'
 gem 'therubyracer'
 # Gems used only for assets and not required

@@ -1,3 +1,6 @@
+<% content_for :javascript do %>
+  <%= render 'js'%>
+<% end %>
 <table style="height: 85px; position: fixed; top:0; background: white;">
   <tr>
     <td style="width: 550px;background: #d9dbda; float: left; height: 50px; padding-top: 20px; margin-top: 15px; margin-left: 2px;">
@@ -10,9 +13,35 @@
   </tr>
 </table>
 
-<table style="clear: both; position: fixed; top:85px; background: white;">
+<table style="clear: both; position: fixed; top:85px; background: white; ">
   <tr>
+    <td class="mainf" ></td>
+    <td class="numb" rowspan="2">№</td>
+    <td class="name" rowspan="2">НАЗВАНИЕ/ФОТО</td>
+    <td class="razmer" colspan="3">РАЗМЕРЫ мм </td>
+    <td class="col" rowspan="2">КОЛ-ВО</td>
+    <td class="art" rowspan="2">№ АРТ</td>
+    <td class="stoim" colspan="6">СТОИМОСТЬ УСЛУГ В РУБ/ШТ.</td>
     <td rowspan="2"></td>
+    <td rowspan="2"><a href="/catalogues.pdf"><img src="/images/pdf.gif"></a></td>    
+  </tr>
+  <tr>
+    <td class="mainf" ></td>    
+    <td class="sh" >ширина</td>
+    <td class="sh" >высота</td>
+    <td class="sh" >глубина</td>  
+    <td class="arenda" style="font-weight: bold;" >АРЕНДА</td>
+    <td class="arenda" >ПОКУПКА</td>    
+    <td class="arenda" >ТРАНСПОР-<br>ТИРОВКА</td>    
+    <td class="arenda" >МОНТАЖ</td>    
+    <td class="arenda" >ДЕМОНТАЖ</td>    
+    <td class="arenda" >ШТРАФ</td>  
+  </tr>
+</table>  
+<table style="clear: both; margin-top: 65px; " >
+  <tbody >
+  <tr >
+    <td rowspan="2" class="mainf" ></td>
     <td class="numb" rowspan="2">№</td>
     <td class="name" rowspan="2">НАЗВАНИЕ/ФОТО</td>
     <td class="razmer" colspan="3">РАЗМЕРЫ мм </td>
@@ -34,20 +63,26 @@
     <td></td>
     <td><a href="/catalogues.pdf"><img src="/images/pdf.gif"></a></td>        
   </tr>
-</table>  
-<table style="clear: both; margin-top: 145px;">
+  </tbody>
+</table>
+<ul id="tables" style="width: 1100px; padding:0;">
 <% @catalogues.each do |catalogue| %>
-  <tr>
-    <td rowspan="4"></td>
+<li id="table_<%=catalogue.id %>" style="clear: both;">
+<div style="width: 1100px; float: left;">
+<table style="float: left;">
+  <tr >
+    <td rowspan="4" style="width: 60px;" >
+в
+    </td>
     <td class="numb">
-        <%= catalogue.id %>
+        <%= catalogue.position %>
     </td>
     <td colspan="12" class="nameitem"><%= catalogue.name %></td>
     <td rowspan="3"><%= link_to image_tag("/images/edit.png"), edit_catalogue_path(catalogue) %></td>
     <td rowspan="3"><%= link_to image_tag("/images/del.png"), catalogue, :confirm => 'Are you sure?', :method => :delete %></td>
     
   </tr>
-  <tr>
+  <tr >
     <td rowspan="2" class="f">
     </td>
     <td class="foto" rowspan="2">
@@ -115,7 +150,17 @@
     <td colspan="11" class="desc"><%= catalogue.desc %></td>
   </tr>
   <tr><td colspan="13" style="padding-bottom: 2px;"></td></tr>
+</table>
+<span class="handle" style="float: left; margin: auto 5px;">
+  <img src="/images/drag.png">
+  </span>   
+
+</div>
+
+</li>
 <% end %>
+</ul>
+<table>
   <tr>
     <td>
       <%= form_for(@catalogue) do |f| %>
@@ -210,6 +255,7 @@
     </td>  
   </tr>
   <% end %>
+  </tbody>
 </table>
 
 <br />

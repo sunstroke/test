@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120306103847) do
+ActiveRecord::Schema.define(:version => 20120423111156) do
 
   create_table "catalogues", :force => true do |t|
     t.boolean  "mainfoto",       :default => true
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(:version => 20120306103847) do
     t.integer  "dismantling"
     t.integer  "fine"
     t.text     "desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position"
+    t.boolean  "visible"
+    t.boolean  "print"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username",         :null => false
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
