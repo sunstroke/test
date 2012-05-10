@@ -5,6 +5,8 @@ include CarrierWave::MimeTypes
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
+  after :store, :delete_old_tmp_file
+
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -20,7 +22,15 @@ include CarrierWave::MimeTypes
   # def default_url
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
+  # remember the tmp file
+  def cache!(new_file)
+    super
+    @old_tmp_file = new_file
+  end
 
+  def delete_old_tmp_file(dummy)
+    @old_tmp_file.try :delete
+  end
   # Process files as they are uploaded:
   process :resize_to_fit => [1000, 1000]  
   #process :scale => [200, 300]

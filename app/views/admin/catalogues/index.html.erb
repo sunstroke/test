@@ -15,18 +15,18 @@
 
 <table style="clear: both; position: fixed; top:85px; background: white; ">
   <tr>
-    <td class="mainf" style="width: 58px;" >&nbsp;</td>
-    <td class="numb" rowspan="2" style="width: 25px;">№</td>
-    <td class="name" rowspan="2" style="width: 270px;">НАЗВАНИЕ/ФОТО</td>
-    <td class="razmer" colspan="3" style="width: 125px;">РАЗМЕРЫ мм </td>
-    <td class="col" rowspan="2" style=" width: 50px; " >КОЛ-ВО</td>
-    <td class="art" rowspan="2"  style=" width: 75px;">№ АРТ</td>
+    <td class="mainf" ></td>
+    <td class="numb" rowspan="2">№</td>
+    <td class="name" rowspan="2">НАЗВАНИЕ/ФОТО</td>
+    <td class="razmer" colspan="3">РАЗМЕРЫ мм </td>
+    <td class="col" rowspan="2">КОЛ-ВО</td>
+    <td class="art" rowspan="2">№ АРТ</td>
     <td class="stoim" colspan="6">СТОИМОСТЬ УСЛУГ В РУБ/ШТ.</td>
     <td rowspan="2"></td>
     <td rowspan="2"><a href="/catalogues.pdf"><img src="/images/pdf.gif"></a></td>    
   </tr>
   <tr>
-    <td class="mainf" style="width: 58px;">&nbsp;</td>    
+    <td class="mainf" ></td>    
     <td class="sh" >ширина</td>
     <td class="sh" >высота</td>
     <td class="sh" >глубина</td>  
@@ -38,10 +38,10 @@
     <td class="arenda" >ШТРАФ</td>  
   </tr>
 </table>  
-<table style="clear: both; margin-top: 65px; display:none;" >
+<table style="clear: both; margin-top: 65px; " >
   <tbody >
   <tr >
-    <td rowspan="2" class="mainf" style="width: 60px;" ></td>
+    <td rowspan="2" class="mainf" ></td>
     <td class="numb" rowspan="2">№</td>
     <td class="name" rowspan="2">НАЗВАНИЕ/ФОТО</td>
     <td class="razmer" colspan="3">РАЗМЕРЫ мм </td>
@@ -68,11 +68,13 @@
 <ul id="tables" style="width: 1100px; padding:0;">
 <% @catalogues.each do |catalogue| %>
 <li id="table_<%=catalogue.id %>" style="clear: both;">
-<div style="width: 1200px; float: left;">
+<div style="width: 1100px; float: left;">
 <table style="float: left;">
   <tr >
-    <td rowspan="4" style="width: 60px;" >&nbsp;</td>
-    <td class="numb" style="width: 27px;">
+    <td rowspan="4" style="width: 60px;" >
+в
+    </td>
+    <td class="numb">
         <%= catalogue.position %>
     </td>
     <td colspan="12" class="nameitem"><%= catalogue.name %></td>
@@ -81,64 +83,64 @@
     
   </tr>
   <tr >
-    <td rowspan="2" class="f" style="width: 27px;">&nbsp;</td>
-    <td class="foto" rowspan="2" style="width: 272px;">
+    <td rowspan="2" class="f">
+    </td>
+    <td class="foto" rowspan="2">
         <%- if catalogue.mainfoto? %>
-          <div class="fotom"style="width: 272px;">
+          <div class="fotom">
             <%= image_tag(catalogue.foto1_url(:one_foto)) if catalogue.foto1? %>
-            &nbsp;
           </div>
           <%- else %>
-          <div class="foto1" style="width: 272px;">
+          <div class="foto1">
             <%= image_tag(catalogue.foto1_url(:main_foto)) if catalogue.foto1?  %>
           </div>
-          <div class="foto2" style="width: 136px;">
-            <%= image_tag(catalogue.foto2_url(:tumb_foto)) if catalogue.foto2? %>&nbsp;            
+          <div class="foto2">
+            <%= image_tag(catalogue.foto2_url(:tumb_foto)) if catalogue.foto2? %>            
           </div>
-          <div class="foto2" style="width: 136px;">          
-            <%= image_tag(catalogue.foto3_url(:tumb_foto)) if catalogue.foto3? %>  &nbsp;                    
+          <div class="foto2">          
+            <%= image_tag(catalogue.foto3_url(:tumb_foto)) if catalogue.foto3? %>                      
           </div>          
         <%- end %>        
     </td>
-    <td colspan="3" class="razed shvg" style="font-weight: bold; width: 127px; ">
+    <td colspan="3" class="razed" style="font-weight: bold;">
         <%= catalogue.width||"0" %>x<%= catalogue.height||"0" %>x<%= catalogue.depth||"0"%>
     </td>    
-    <td class="razed kolvo" style=" width: 52px; ">
+    <td class="razed">
       <div class="field" >
         <%= catalogue.count||"0" %>
       </div>        
     </td>
-    <td class="razed artikl">
-      <div class="field" style=" width: 77px; ">
+    <td class="razed">
+      <div class="field" >
         <%= catalogue.art||"-" %>
       </div>        
     </td>
-    <td  class="cena arendy" style="font-weight: bold;width: 54px; ">
+    <td  class="cena" style="font-weight: bold;">
       <div class="field">
         <%= catalogue.rent||"-"  %>
       </div>        
     </td>
-    <td  class="cena pokupka" style="width: 59px; ">
+    <td  class="cena">
       <div class="field">
         <%= catalogue.purchase||"-" %>
       </div>        
     </td>
-    <td   class="cena transport" style="width: 69px; ">
+    <td   class="cena">
       <div class="field">
         <%= catalogue.transportation||"-"  %>
       </div>        
     </td>
-    <td  class="cena ustanovka" style="width: 56px;">
+    <td  class="cena">
       <div class="field">
         <%= catalogue.installation||"-" %>
       </div>        
     </td>
-    <td  class="cena demontazh" style="width: 70px; ">
+    <td  class="cena">
       <div class="field">
         <%= catalogue.dismantling||"-" %>
       </div>        
     </td>
-    <td  class="cena shtraf"  style="width: 46px; ">
+    <td  class="cena">
       <div class="field">
         <%= catalogue.fine||"-"  %>
       </div>        
@@ -158,38 +160,42 @@
 </li>
 <% end %>
 </ul>
- <%= form_for(@catalogue) do |f| %>
-    <% if @catalogue.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@catalogue.errors.count, "error") %> prohibited this catalogue from being saved:</h2>
-
-        <ul>
-        <% @catalogue.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-<table style="clear:both; float:left;">
-  <tbody>
+<table>
   <tr>
-    <td rowspan="4" class="mainf" style="width: 60px; height:100px;">
+    <td>
+      <%= form_for(@catalogue) do |f| %>
+        <% if @catalogue.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@catalogue.errors.count, "error") %> prohibited this catalogue from being saved:</h2>
+
+            <ul>
+            <% @catalogue.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="4" class="mainf">
       <%= image_tag("/images/one_photo.png") %><%= f.radio_button :mainfoto, "true" %>
       <br>
       <%= image_tag("/images/many_photo.png") %><%= f.radio_button :mainfoto, "false" %>
     </td>    
-    <td class="numb" style="width: 27px; float:left;">&nbsp;</td>
-    <td colspan="12" class="nameitem" style="width: 892px;" ><%= f.text_field :name ,:style=>"width: 880px;" %></td>
-    <td rowspan="3">&nbsp; <div class="actions">
-  <%= f.submit :type=>"image", :src=>"/images/add.png" %>
-  </div></td>
-    <td rowspan="3">&nbsp;</td>
+    <td class="numb">
+
+    </td>
+    <td colspan="12" class="nameitem"><%= f.text_field :name ,:style=>"width: 99%;" %></td>
+    <td rowspan="3"></td>
+    <td rowspan="3"></td>
     
   </tr>
   <tr>
-    <td rowspan="2" class="f" style="width: 27px;">&nbsp;</td>
+    <td rowspan="2" class="f">
+    </td>
     <td class="foto" rowspan="2">
-        <div class="foto1" style="width: 272px;">
+        <div class="foto1">
         <%= f.file_field  :foto1 %>
         </div>
         <div class="foto2">
@@ -197,7 +203,7 @@
         <%= f.file_field  :foto3 %>                
         </div>
     </td>
-    <td colspan="3" class="razed" style="width: 127px;">
+    <td colspan="3" class="razed" style="font-weight: bold;">
         <%= f.text_field :width ,:style=>"width: 20px;" %>X<%= f.text_field :height  ,:style=>"width: 20px;" %>X<%= f.text_field :depth  ,:style=>"width: 20px;" %>
     <td class="razed">
       <div class="field" >
@@ -241,13 +247,16 @@
     </td>
   </tr>
   <tr>
-    <td colspan="11" class="desc"><%= f.text_area :desc  ,:style=>"width: 100%; height: 50px;" %>
-      </td>
+    <td colspan="11" class="desc"><%= f.text_area :desc  ,:style=>"width: 100%; height: 50px;" %></td>
+    <td>
+      <div class="actions">
+      <%= f.submit :type=>"image", :src=>"/images/add.png" %>
+      </div>
+    </td>  
   </tr>
-  <tr><td colspan="13" style="padding-bottom: 2px;">&nbsp;</td></tr>  
-
+  <% end %>
   </tbody>
 </table>
-  <% end %>
+
 <br />
 

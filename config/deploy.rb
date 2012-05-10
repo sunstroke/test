@@ -13,9 +13,9 @@ set :deploy_to, "/var/www/rails/fabrika"
 set :scm, :git
 ssh_options[:paranoid] = false
 
-role :web, "photocross.ru"
-role :app, "photocross.ru"
-role :db,  "photocross.ru", :primary => true
+role :web, "fabrika-art.ru"
+role :app, "fabrika-art.ru"
+role :db,  "fabrika-art.ru", :primary => true
 
 set :user, "webmaster"
 
