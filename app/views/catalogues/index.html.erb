@@ -15,7 +15,7 @@
 
 <table style="clear: both; position: fixed; top:85px; background: white; ">
   <tr>
-    <td class="mainf" style="width: 58px;" >&nbsp;</td>
+    <td class="mainf" style="width: 60px;" >&nbsp;</td>
     <td class="numb" rowspan="2" style="width: 25px;">№</td>
     <td class="name" rowspan="2" style="width: 270px;">НАЗВАНИЕ/ФОТО</td>
     <td class="razmer" colspan="3" style="width: 125px;">РАЗМЕРЫ мм </td>
@@ -26,7 +26,7 @@
     <td rowspan="2"><a href="/catalogues.pdf"><img src="/images/pdf.gif"></a></td>    
   </tr>
   <tr>
-    <td class="mainf" style="width: 58px;">&nbsp;</td>    
+    <td class="mainf" style="width: 62px;"><div style="width: 62px;"></div></td>    
     <td class="sh" >ширина</td>
     <td class="sh" >высота</td>
     <td class="sh" >глубина</td>  
@@ -71,7 +71,7 @@
 <div style="width: 1200px; float: left;">
 <table style="float: left;">
   <tr >
-    <td rowspan="4" style="width: 60px;" >&nbsp;</td>
+    <td rowspan="4" style="width: 62px;" >        <div style="width: 62px;"></div></td>
     <td class="numb" style="width: 27px;">
         <%= catalogue.position %>
     </td>
@@ -101,7 +101,8 @@
         <%- end %>        
     </td>
     <td colspan="3" class="razed shvg" style="font-weight: bold; width: 127px; ">
-        <%= catalogue.width||"0" %>x<%= catalogue.height||"0" %>x<%= catalogue.depth||"0"%>
+       <div style="font-weight: bold; width: 127px; "> <%= catalogue.width||"0" %>x<%= catalogue.height||"0" %>x<%= catalogue.depth||"0"%>
+         </div>
     </td>    
     <td class="razed kolvo" style=" width: 52px; ">
       <div class="field" >
@@ -173,12 +174,9 @@
 <table style="clear:both; float:left;">
   <tbody>
   <tr>
-    <td rowspan="4" class="mainf" style="width: 60px; height:100px;">
-      <%= image_tag("/images/one_photo.png") %><%= f.radio_button :mainfoto, "true" %>
-      <br>
-      <%= image_tag("/images/many_photo.png") %><%= f.radio_button :mainfoto, "false" %>
-    </td>    
-    <td class="numb" style="width: 27px; float:left;">&nbsp;</td>
+     <td class="mainf" style="width: 58px;">        <div style="width: 58px;"></div>
+      </td>
+    <td class="numb" ><div style="width: 25px;">&nbsp;</div></td>
     <td colspan="12" class="nameitem" style="width: 892px;" ><%= f.text_field :name ,:style=>"width: 880px;" %></td>
     <td rowspan="3">&nbsp; <div class="actions">
   <%= f.submit :type=>"image", :src=>"/images/add.png" %>
@@ -187,12 +185,19 @@
     
   </tr>
   <tr>
-    <td rowspan="2" class="f" style="width: 27px;">&nbsp;</td>
+     <td rowspan="2" class="mainf"style="width: 58px;" >
+        <div style="width: 58px;">
+        <%= image_tag("/images/one_photo.png") %><%= f.radio_button :mainfoto, "true" %>
+        <br>
+        <%= image_tag("/images/many_photo.png") %><%= f.radio_button :mainfoto, "false" %>
+        </div>
+      </td>    
+    <td rowspan="2" class="f" style="width: 25px;">&nbsp;</td>
     <td class="foto" rowspan="2">
         <div class="foto1" style="width: 272px;">
         <%= f.file_field  :foto1 %>
         </div>
-        <div class="foto2">
+        <div class="foto2" style="width: 272px; height:50px;">
         <%= f.file_field  :foto2 %>
         <%= f.file_field  :foto3 %>                
         </div>
@@ -241,10 +246,10 @@
     </td>
   </tr>
   <tr>
-    <td colspan="11" class="desc"><%= f.text_area :desc  ,:style=>"width: 100%; height: 50px;" %>
+    <td style="width: 62px;"></td>
+    <td colspan="11" class="desc"><%= f.text_area :desc  ,:style=>"width: 400px; height: 50px;" %>
       </td>
   </tr>
-  <tr><td colspan="13" style="padding-bottom: 2px;">&nbsp;</td></tr>  
 
   </tbody>
 </table>

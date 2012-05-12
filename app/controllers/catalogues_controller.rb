@@ -7,12 +7,16 @@ class CataloguesController < ApplicationController
       format.html # index.html.erb
       format.pdf {
         html = render_to_string(:layout => false , :action => "pdf.html.erb")
-        kit = PDFKit.new(html, :page_size=>'A4',:margin_top    => '11.5mm',
+        kit = PDFKit.new(html, :page_size=>'A4',
+        :margin_top    => '40mm',
         :margin_right  => '17.5mm',
-        :margin_bottom => '5.8mm',
-        :margin_left   => '17.5mm')
+        :margin_bottom => '10mm',
+        :margin_left   => '17.5mm', 
+        :header_font_size =>"9",
+        :footer_html =>"#{Rails.root}/public/footer.html" ,
+        :header_html =>"#{Rails.root}/public/header.html" )
         kit.stylesheets << "#{Rails.root}/public/stylesheets/screen.css"
-        send_data(kit.to_pdf, :filename => "labels.pdf", :type => 'application/pdf')
+        send_data(kit.to_pdf, :filename => "catalog_fabrika-art_#{DateTime.now.year}_#{DateTime.now.month}_#{DateTime.now.day}.pdf", :type => 'application/pdf')
         return # to avoid double render call
       }
       

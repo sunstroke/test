@@ -18,12 +18,12 @@ table {
 }
 .numb {
 	background: #ef7f1b;
-	font-size: 6.5pt;
+	font-size: 10.5pt;
 	width: 25px;
 }
 .name {
 	background: #da5323;
-	font-size: 6.5pt;
+	font-size: 10.5pt;
 	color: white;	
 	font-weight: bold;
 	width: 268px;	
@@ -31,12 +31,12 @@ table {
 }
 .razmer {
 	background: #ef7f1b;
-	font-size: 6pt;	
+	font-size: 9pt;	
 	width: 160px;
 	text-align: center;	
 }
 .nameitem {
-	font-size: 6.5pt;
+	font-size: 10.5pt;
 	background: #d9dbda;
 	color: #8e8d8e;
 	text-align: left;	
@@ -59,7 +59,7 @@ table {
 }
 
 .razed {
-	font-size: 7pt;
+	font-size: 12pt;
 	background: #ebedec;
 	height: 215px;
 	text-align: center;	
@@ -67,7 +67,7 @@ table {
 }
 .desc {
 	background: #ebedec;
-	font-size: 6.5pt;
+	font-size: 10.5pt;
 	color: #8e8d8e;
 	text-align: left;
 	vertical-align: top;
@@ -78,7 +78,7 @@ table {
 	background: #5b5b5b;
 }
 .cena {
-	font-size: 10pt;
+	font-size: 12pt;
 	background: #f3f3f3;
 	text-align: center;	
 	vertical-align: top;	
@@ -92,13 +92,13 @@ table {
 }
 .col {
 	background: #ef7f1b;	
-	font-size: 6.5pt;
+	font-size: 10.5pt;
 	width: 50px;
 	text-align: center;	
 }
 .art {
 	background: #ef7f1b;
-	font-size: 6.5pt;	
+	font-size: 10.5pt;	
 	width: 75px;	
 	text-align: center;	
 }
@@ -112,4 +112,7 @@ table {
 	background: #f6a057;
 	font-size: 5pt;	
 	text-align: center;	
+}
+.field {
+	font-size: 10.5pt;		
 }
