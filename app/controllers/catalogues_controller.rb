@@ -30,7 +30,10 @@ class CataloguesController < ApplicationController
     @catalogue = Catalogue.find(params[:id])
 
     respond_to do |format|
-      format.html
+      format.html {
+        html = render_to_string(:layout => false , :action => "pdf.html.haml")
+        return # to avoid double render call
+      }
       format.pdf {
         html = render_to_string(:layout => false , :action => "pdf.html.haml")
         kit = PDFKit.new(html)
