@@ -32,7 +32,6 @@ class CataloguesController < ApplicationController
     respond_to do |format|
       format.html {
         render :action => "pdf.html.haml"
-        layout false
         
       }
       format.pdf {
