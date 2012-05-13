@@ -31,9 +31,8 @@ class CataloguesController < ApplicationController
 
     respond_to do |format|
       format.html {
-         render :action => "pdf.html.haml"
-        :layout => false
-        return # to avoid double render call
+        render :action => "pdf.html.haml"
+        layout false
         
       }
       format.pdf {
