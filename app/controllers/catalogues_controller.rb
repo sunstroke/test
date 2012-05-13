@@ -84,7 +84,7 @@ class CataloguesController < ApplicationController
 
     respond_to do |format|
       if @catalogue.update_attributes(params[:catalogue])
-        format.html { redirect_to catalogues_url+"#table_#{@catalogue.position}", :notice=> 'Catalogue was successfully updated.' }
+        format.html { redirect_to catalogues_url+"#table_#{@catalogue.id}", :notice=> 'Catalogue was successfully updated.' }
 
       else
         format.html { render :action => "edit" }
