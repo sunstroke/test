@@ -13,17 +13,17 @@
     <td class="foto" rowspan="2" style="width: 270px;">
       <%- if catalogue.mainfoto? %>
         <div class="fotom" style="width: 270px;">
-          <%= image_tag("#{::Rails.root}/public"+catalogue.foto1_url(:one_foto)) if catalogue.foto1? %>
+          <%= image_tag("#{::Rails.root}/public"+catalogue.foto1_url(:one_foto), :size => "270x325") if catalogue.foto1? %>
         </div>
         <%- else %>
         <div class="foto1">
-          <%= image_tag("#{::Rails.root}/public"+catalogue.foto1_url(:main_foto)) if catalogue.foto1?  %>
+          <%= image_tag("#{::Rails.root}/public"+catalogue.foto1_url(:main_foto),:size => "270x215") if catalogue.foto1?  %>
         </div>
         <div class="foto2">
-          <%= image_tag("#{::Rails.root}/public"+catalogue.foto2_url(:tumb_foto)) if catalogue.foto2? %>            
+          <%= image_tag("#{::Rails.root}/public"+catalogue.foto2_url(:tumb_foto),:size => "135x110") if catalogue.foto2? %>            
         </div>
         <div class="foto2">          
-          <%= image_tag("#{::Rails.root}/public"+catalogue.foto3_url(:tumb_foto)) if catalogue.foto3? %>                      
+          <%= image_tag("#{::Rails.root}/public"+catalogue.foto3_url(:tumb_foto),:size => "135x110") if catalogue.foto3? %>                      
         </div>          
       <%- end %>        
     </td>
