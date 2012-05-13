@@ -31,8 +31,10 @@ class CataloguesController < ApplicationController
 
     respond_to do |format|
       format.html {
-        html = render_to_string(:layout => false , :action => "pdf.html.haml")
+         render :action => "pdf.html.haml"
+        :layout => false
         return # to avoid double render call
+        
       }
       format.pdf {
         html = render_to_string(:layout => false , :action => "pdf.html.haml")
