@@ -29,7 +29,9 @@ include CarrierWave::MimeTypes
   end
 
   def delete_old_tmp_file(dummy)
-    @old_tmp_file.try :delete
+    if @old_tmp_file.present?
+      @old_tmp_file.try :delete
+    end
   end
   # Process files as they are uploaded:
   process :resize_to_fit => [1000, 1000]  
