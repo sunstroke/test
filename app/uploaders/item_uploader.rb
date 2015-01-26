@@ -5,7 +5,7 @@ include CarrierWave::MimeTypes
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  after :store, :delete_old_tmp_file
+  # after :store, :delete_old_tmp_file
 
 
   # Choose what kind of storage to use for this uploader:
