@@ -65,6 +65,108 @@
   </tr>
   </tbody>
 </table>
+
+ <%= form_for(@catalogue) do |f| %>
+    <% if @catalogue.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@catalogue.errors.count, "error") %> ошибки:</h2>
+
+        <ul>
+        <% @catalogue.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+<table style="clear:both; float:left; margin-top: 100px;">
+  <tbody>
+    <tr>
+      <td colspan="16">
+        <%= collection_select(:catalogue, :category_id, Category.all, :id, :name, {:prompt => false}) %>
+      </td>
+    </tr>    
+  <tr>
+     <td class="mainf" style="width: 58px;">        <div style="width: 58px;"></div>
+      </td>
+    <td class="numb" ><div style="width: 25px;">&nbsp;</div></td>
+    <td colspan="12" class="nameitem" style="width: 892px;" ><%= f.text_field :name ,:style=>"width: 880px;" %></td>
+    <td rowspan="3">&nbsp; <div class="actions">
+  <%= f.submit :type=>"image", :src=>"/images/add.png" %>
+  </div></td>
+    <td rowspan="3">&nbsp;</td>
+    
+  </tr>
+  <tr>
+     <td rowspan="2" class="mainf"style="width: 58px;" >
+        <div style="width: 58px;">
+        <%= image_tag("/images/one_photo.png") %><%= f.radio_button :mainfoto, "true" %>
+        <br>
+        <%= image_tag("/images/many_photo.png") %><%= f.radio_button :mainfoto, "false" %>
+        </div>
+      </td>    
+    <td rowspan="2" class="f" style="width: 25px;">&nbsp;</td>
+    <td class="foto" rowspan="2">
+        <div class="foto1" style="width: 272px;">
+        <%= f.file_field  :foto1 %>
+        </div>
+        <div class="foto2" style="width: 272px; height:50px;">
+        <%= f.file_field  :foto2 %>
+        <%= f.file_field  :foto3 %>                
+        </div>
+    </td>
+    <td colspan="3" class="razed" style="width: 127px;">
+        <%= f.text_field :width ,:style=>"width: 20px;" %>X<%= f.text_field :height  ,:style=>"width: 20px;" %>X<%= f.text_field :depth  ,:style=>"width: 20px;" %>
+    <td class="razed">
+      <div class="field" >
+        <%= f.text_field :count ,:style=>"width: 30px;" %>
+      </div>        
+    </td>
+    <td class="razed">
+      <div class="field" >
+        <%= f.text_field :art ,:style=>"width: 30px;" %>
+      </div>        
+    </td>
+    <td  class="cena" style="font-weight: bold;">
+      <div class="field">
+        <%= f.text_field :rent ,:style=>"width: 30px;"  %>
+      </div>        
+    </td>
+    <td  class="cena">
+      <div class="field">
+        <%= f.text_field :purchase ,:style=>"width: 30px;" %>
+      </div>        
+    </td>
+    <td   class="cena">
+      <div class="field">
+        <%= f.text_field :transportation  ,:style=>"width: 30px;"%>
+      </div>        
+    </td>
+    <td  class="cena">
+      <div class="field">
+        <%= f.text_field :installation ,:style=>"width: 30px;" %>
+      </div>        
+    </td>
+    <td  class="cena">
+      <div class="field">
+        <%= f.text_field :dismantling  ,:style=>"width: 30px;"%>
+      </div>        
+    </td>
+    <td  class="cena">
+      <div class="field">
+        <%= f.text_field :fine  ,:style=>"width: 30px;" %>
+      </div>        
+    </td>
+  </tr>
+  <tr>
+    <td style="width: 62px;"></td>
+    <td colspan="11" class="desc"><%= f.text_area :desc  ,:style=>"width: 400px; height: 50px;" %>
+      </td>
+  </tr>
+
+  </tbody>
+</table>
+  <% end %>
+
 <ul id="tables" style="width: 1100px; padding:0; margin-top: 100px;">
 <% @catalogues.each do |catalogue| %>
 <li id="table_<%=catalogue.id %>" style="clear: both;">
@@ -159,100 +261,6 @@
 </li>
 <% end %>
 </ul>
- <%= form_for(@catalogue) do |f| %>
-    <% if @catalogue.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@catalogue.errors.count, "error") %> prohibited this catalogue from being saved:</h2>
 
-        <ul>
-        <% @catalogue.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-<table style="clear:both; float:left;">
-  <tbody>
-  <tr>
-     <td class="mainf" style="width: 58px;">        <div style="width: 58px;"></div>
-      </td>
-    <td class="numb" ><div style="width: 25px;">&nbsp;</div></td>
-    <td colspan="12" class="nameitem" style="width: 892px;" ><%= f.text_field :name ,:style=>"width: 880px;" %></td>
-    <td rowspan="3">&nbsp; <div class="actions">
-  <%= f.submit :type=>"image", :src=>"/images/add.png" %>
-  </div></td>
-    <td rowspan="3">&nbsp;</td>
-    
-  </tr>
-  <tr>
-     <td rowspan="2" class="mainf"style="width: 58px;" >
-        <div style="width: 58px;">
-        <%= image_tag("/images/one_photo.png") %><%= f.radio_button :mainfoto, "true" %>
-        <br>
-        <%= image_tag("/images/many_photo.png") %><%= f.radio_button :mainfoto, "false" %>
-        </div>
-      </td>    
-    <td rowspan="2" class="f" style="width: 25px;">&nbsp;</td>
-    <td class="foto" rowspan="2">
-        <div class="foto1" style="width: 272px;">
-        <%= f.file_field  :foto1 %>
-        </div>
-        <div class="foto2" style="width: 272px; height:50px;">
-        <%= f.file_field  :foto2 %>
-        <%= f.file_field  :foto3 %>                
-        </div>
-    </td>
-    <td colspan="3" class="razed" style="width: 127px;">
-        <%= f.text_field :width ,:style=>"width: 20px;" %>X<%= f.text_field :height  ,:style=>"width: 20px;" %>X<%= f.text_field :depth  ,:style=>"width: 20px;" %>
-    <td class="razed">
-      <div class="field" >
-        <%= f.text_field :count ,:style=>"width: 30px;" %>
-      </div>        
-    </td>
-    <td class="razed">
-      <div class="field" >
-        <%= f.text_field :art ,:style=>"width: 30px;" %>
-      </div>        
-    </td>
-    <td  class="cena" style="font-weight: bold;">
-      <div class="field">
-        <%= f.text_field :rent ,:style=>"width: 30px;"  %>
-      </div>        
-    </td>
-    <td  class="cena">
-      <div class="field">
-        <%= f.text_field :purchase ,:style=>"width: 30px;" %>
-      </div>        
-    </td>
-    <td   class="cena">
-      <div class="field">
-        <%= f.text_field :transportation  ,:style=>"width: 30px;"%>
-      </div>        
-    </td>
-    <td  class="cena">
-      <div class="field">
-        <%= f.text_field :installation ,:style=>"width: 30px;" %>
-      </div>        
-    </td>
-    <td  class="cena">
-      <div class="field">
-        <%= f.text_field :dismantling  ,:style=>"width: 30px;"%>
-      </div>        
-    </td>
-    <td  class="cena">
-      <div class="field">
-        <%= f.text_field :fine  ,:style=>"width: 30px;" %>
-      </div>        
-    </td>
-  </tr>
-  <tr>
-    <td style="width: 62px;"></td>
-    <td colspan="11" class="desc"><%= f.text_area :desc  ,:style=>"width: 400px; height: 50px;" %>
-      </td>
-  </tr>
-
-  </tbody>
-</table>
-  <% end %>
 <br />
 

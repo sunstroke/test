@@ -1,4 +1,6 @@
 Fabrika::Application.routes.draw do
+  resources :categories
+
   get "user_sessions/new"
 
   get "user_sessions/create"
