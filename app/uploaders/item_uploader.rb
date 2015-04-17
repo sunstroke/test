@@ -41,13 +41,13 @@ include CarrierWave::MimeTypes
   #   # do something
   # end
   version :one_foto do
-    process :resize_to_fill => [270, 325]
+    process :resize_to_fit => [270, 325]
   end
   version :main_foto do
-    process :resize_to_fill => [270, 215]
+    process :resize_to_fit => [270, 215]
   end
   version :tumb_foto do
-    process :resize_to_fill => [135, 110]
+    process :resize_to_fit => [135, 110]
   end  
   # Create different versions of your uploaded files:
   # version :thumb do

@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.3'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
+gem 'foundation-rails'
 gem 'sqlite3'
 gem "haml"
 gem 'pdfkit'
@@ -18,14 +18,13 @@ gem 'therubyracer'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1.5'
-  gem 'coffee-rails', '~> 3.1.1'
+  gem 'sass-rails','>= 3.1.1'
+  gem 'coffee-rails', '>= 3.1.1'
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'web-app-theme', '>= 0.6.2'
 
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

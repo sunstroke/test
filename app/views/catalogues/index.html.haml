@@ -1,0 +1,142 @@
+
+-content_for :title do
+  %title Mixture
+.row
+  .large-12.columns
+    / Navigation
+    .row
+      .large-12.column
+        .off-canvas-wrap{"data-offcanvas" => ""}
+          .inner-wrap
+            %nav.tab-bar
+              %section.left-small
+                %a.left-off-canvas-toggle.menu-icon
+                  %script
+                    $(document).foundation();                  
+                  %span
+              %section.middle.tab-bar-section
+                %h1.title Каталог
+              %section.right-small
+                %a.right-off-canvas-toggle.menu-icon
+                  %span
+            %aside.left-off-canvas-menu
+              %ul.off-canvas-list
+                %li
+                  %label Категории
+                -Category.all.each do |category|                  
+                  %li
+                    %a{:href => "#"}=category.name
+            %aside.right-off-canvas-menu
+              %ul.off-canvas-list
+                %li
+                  %label Профиль
+                %li
+                  %a{:href => "#"} Редактирвать
+                %li
+                  %a{:href => "#"} Выход
+
+            %section.main-section
+              .row
+                / Side Bar
+                .large-4.small-12.columns
+                  .panel
+                    %h4 Новый предмет                
+                    = form_for(@catalogue) do |f|
+                      %div Категория
+                      = collection_select(:catalogue, :category_id, Category.all, :id, :name, {:prompt => false})   
+                      %div
+                        Фотографии:
+                        .row
+                          .large-4.columns 
+                            = f.file_field  :foto1
+                          .large-4.columns                           
+                            = f.file_field  :foto2
+                          .large-4.columns 
+                            = f.file_field  :foto3
+                      Размеры мм:
+                      .row  
+                        .large-3.large-offset-1.columns
+                          %small Ширина  
+                          =(f.text_field :width ,:style=>"width: 40px;")
+                        .large-3.large-offset-1.columns                        
+                          %small Высота
+                          = (f.text_field :height  ,:style=>"width: 40px;")
+                        .large-3.large-offset-1.columns                        
+                          %small Глубина
+                          =(f.text_field :depth  ,:style=>"width: 40px;" )
+                      .row
+                        .large-3.large-offset-1.columns
+                          %small Кол-во
+                          = f.text_field :count ,:style=>"width: 40px;"
+                        .large-3.large-offset-1.columns.end
+                          %small Арт
+                          = f.text_field :art ,:style=>"width: 40px;"
+                      Аренда
+                      .row
+                        .large-2.columns
+                          %small 
+                            Аренда
+                          = f.text_field :rent ,:style=>"width: 30px;" 
+                        .large-2.columns
+                          %small Покупка
+                          %br
+                          = f.text_field :purchase ,:style=>"width: 30px;"
+                        .large-2.columns.end
+                          %small Транспортировка
+                          = f.text_field :transportation  ,:style=>"width: 30px;"
+                      .row                          
+                        .large-2.columns
+                          %small Монтаж
+                          %br
+                          = f.text_field :installation ,:style=>"width: 30px;"
+                        .large-2.columns
+                          %small Демонтаж
+                          %br
+                          = f.text_field :dismantling  ,:style=>"width: 30px;"
+                        .large-2.columns.end
+                          %small Штраф
+                          %br
+                          = f.text_field :fine  ,:style=>"width: 30px;"
+                      .row
+                        .large-12.columns
+                          Описание
+                          = f.text_area :desc  ,:style=>"width: 400px; height: 50px;" 
+                      .row
+                        .large-12.columns
+                          = f.submit :class=>"button", :value=>"Добавить позицию"
+                  %a{:href => "#"}
+                  .panel.callout.radius
+                    %h6 99&nbsp; позиций выбрано
+                / End Side Bar
+                / Thumbnails
+                .large-8.columns
+                  .row
+                    -@catalogues.each do |catalogue|                    
+                      .large-4.small-6.columns
+                        = image_tag(catalogue.foto1_url(:one_foto)) if catalogue.foto1?
+                        .panel
+                          %h5= catalogue.name
+                          %h6.subheader= (catalogue.rent||"-" )&&"/"&&(catalogue.purchase||"-")
+                  / End Thumbnails
+                  / Managed By
+                  .row
+            %a.exit-off-canvas
+
+    / Footer
+    %footer.row
+      .large-12.columns
+        %hr/
+        .row
+          .large-6.columns
+            %p &copy; Copyright
+          .large-6.columns
+            %ul.inline-list.right
+              %li
+                %a{:href => "#"} Link 1
+              %li
+                %a{:href => "#"} Link 2
+              %li
+                %a{:href => "#"} Link 3
+              %li
+                %a{:href => "#"} Link 4
+    / End Footer
