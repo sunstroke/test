@@ -12,9 +12,9 @@ gem "carrierwave"
 gem "mini_magick"
 gem "acts_as_list"
 gem 'json'
-gem 'sorcery'
+gem 'sorcery',"0.7.11"
 gem 'jquery-rails'
-gem 'therubyracer'
+gem 'therubyracer', "~> 0.11.4"
 gem 'execjs','1.3.0'
 # Gems used only for assets and not required
 # in production environments by default.
